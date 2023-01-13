@@ -9,7 +9,13 @@ module.exports = {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        dark: "#0e1217",
+        dark2: "#17191f",
+        primary: "#d74cf6",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

@@ -5,6 +5,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
 
+  important: true,
+
   theme: {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],

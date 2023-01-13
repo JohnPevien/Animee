@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <Navigation />
-      <main className="mt-20">
+      <main className="relative flex mt-20 ">
         <Component {...pageProps} />
       </main>
     </>

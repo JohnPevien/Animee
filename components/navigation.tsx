@@ -5,7 +5,7 @@ function navigation({}: Props) {
   return (
     <header className="fixed top-0 w-full p-5 backdrop-blur-xl  z-30">
       <nav className="flex justify-between items-center container mx-auto">
-        <Link href="/" className=" text-2xl uppercase">
+        <Link href="/" className=" text-2xl uppercase font-bold">
           Animee
         </Link>
         <ul className="flex items-center ml-5">

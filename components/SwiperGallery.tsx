@@ -1,35 +1,49 @@
 import { useRef } from "react";
 
-import type { Anime } from "@type/anime";
+import type { TopAnime } from "@type/index";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 
 import { HiArrowRightCircle, HiArrowLeftCircle } from "react-icons/hi2";
 
 type Props = {
-  data: Anime.RootObject;
+  data: TopAnime.RootObject;
 };
-export default function MarqueeGallery({ data }: Props) {
-  const leftButton = useRef<HTMLButtonElement>(null);
-  const rightButton = useRef<HTMLButtonElement>(null);
 
+const LeftButton = () => {
+  const swiper = useSwiper();
   return (
-    <section className="">
-      <div className="relative">
-        <button
-          ref={leftButton}
-          className=" absolute top-1/2 -translate-y-1/2 -left-16 z-index-10"
-        >
-          <HiArrowLeftCircle size={40} color={"#d74cf6"} />
-        </button>
-        <button
-          ref={rightButton}
-          className="text-xl absolute top-1/2 -translate-y-1/2 -right-16 z-index-10"
-        >
-          <HiArrowRightCircle size={40} color={"#d74cf6"} />
-        </button>
+    <div
+      className=" absolute top-1/2 -translate-y-1/2 left-0 z-10 cursor-pointer"
+      onClick={() => {
+        swiper.slidePrev();
+      }}
+    >
+      <HiArrowLeftCircle size={40} color={"#d74cf6"} />
+    </div>
+  );
+};
+
+const RightButton = () => {
+  const swiper = useSwiper();
+  return (
+    <div
+      className="absolute top-1/2 -translate-y-1/2 right-0 z-10 cursor-pointer"
+      onClick={() => {
+        swiper.slideNext();
+      }}
+    >
+      <HiArrowRightCircle size={40} color={"#d74cf6"} />
+    </div>
+  );
+};
+
+export default function MarqueeGallery({ data }: Props) {
+  return (
+    <section className="container">
+      <div className="">
         <Swiper
           modules={[Autoplay, Navigation]}
           spaceBetween={30}
@@ -43,11 +57,7 @@ export default function MarqueeGallery({ data }: Props) {
             disableOnInteraction: true,
           }}
           grabCursor={true}
-          className="container bg-transparent "
-          navigation={{
-            nextEl: rightButton.current!, //assert non-null
-            prevEl: leftButton.current!, //assert non-null
-          }}
+          className="bg-transparent"
           breakpoints={{
             991: {
               spaceBetween: 30,
@@ -69,6 +79,9 @@ export default function MarqueeGallery({ data }: Props) {
               />
             </SwiperSlide>
           ))}
+
+          <LeftButton />
+          <RightButton />
         </Swiper>
       </div>
     </section>

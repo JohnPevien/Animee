@@ -1,4 +1,4 @@
-export namespace Anime {
+export namespace TopAnime {
 
     export interface Jpg {
         image_url: string;

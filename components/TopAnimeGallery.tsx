@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import type { TopAnime } from "@type/index";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
@@ -40,7 +38,7 @@ const RightButton = () => {
   );
 };
 
-export default function MarqueeGallery({ data }: Props) {
+export default function TopAnimeGallery({ data }: Props) {
   return (
     <section className="container">
       <div className="">

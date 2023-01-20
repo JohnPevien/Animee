@@ -1,4 +1,4 @@
-export declare module RecentAnime {
+export declare module RecentAnimeEpisodes {
 
     export interface Jpg {
         image_url: string;
@@ -24,16 +24,17 @@ export declare module RecentAnime {
         title: string;
     }
 
-    export interface User {
+    export interface Episode {
+        mal_id: string;
         url: string;
-        username: string;
+        title: string;
+        premium: boolean;
     }
 
     export interface Datum {
-        mal_id: string;
-        entry: Entry[];
-        content: string;
-        user: User;
+        entry: Entry;
+        episodes: Episode[];
+        region_locked: boolean;
     }
 
     export interface Pagination {
@@ -47,3 +48,4 @@ export declare module RecentAnime {
     }
 
 }
+

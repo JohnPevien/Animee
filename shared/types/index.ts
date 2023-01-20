@@ -1,2 +1,2 @@
-export * from './recentAnime';
+export * from './recentAnimeEpisodes';
 export * from './topAnime';

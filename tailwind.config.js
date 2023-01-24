@@ -5,8 +5,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
 
-  important: true,
-
   theme: {
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
@@ -15,7 +13,8 @@ module.exports = {
       colors: {
         dark: "#000000",
         dark2: "#17191f",
-        primary: "#d74cf6",
+        primary: "rgb(23, 105, 255)",
+        "primary-accent": "rgb(11, 59, 183)",
       },
     },
   },

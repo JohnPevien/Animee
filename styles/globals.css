@@ -10,12 +10,12 @@
 
 @layer components {
   .btn-primary {
-    background-image: linear-gradient(90deg, #f5005e, #4801f5);
-    @apply shadow-lg text-white font-bold py-2 px-4 rounded;
+    /* background-image: linear-gradient(90deg, #f5005e, #4801f5); */
+    @apply shadow-lg text-white font-bold py-2 px-4 rounded bg-primary transition-colors duration-300 ease-in-out hover:bg-primary-accent;
   }
 
-  .btn-primary:hover {
-    background-image: linear-gradient(90deg, #4801f5, #f5005e);
+  .gradient-heading {
+    @apply bg-gradient-to-r from-primary to-pink-200 bg-clip-text text-transparent;
   }
 }
 

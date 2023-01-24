@@ -45,8 +45,8 @@ export default function Home({ topAnime, recentAnime }: Props) {
       </section>
       <section className="p-5 lg:p-24">
         <div className="flex flex-col justify-center items-center gap-12">
-          <h2 className="text-3xl font-bold text-white  underline">
-            Recent Anime
+          <h2 className="block text-3xl font-semibold text-white text-left  w-full">
+            Recent Episodes
           </h2>
 
           <RecentAnimeGallery data={recentAnime} />
@@ -55,13 +55,13 @@ export default function Home({ topAnime, recentAnime }: Props) {
             href="/anime/recent"
             className="flex flex-row justify-center items-center gap-3"
           >
-            View All Recent Anime <HiArrowLongRight />
+            View All Recent Episodes <HiArrowLongRight />
           </Link>
         </div>
       </section>
       <section className="p-5 lg:p-24">
         <div className="flex flex-col justify-center items-center gap-12">
-          <h2 className="text-3xl font-bold text-white  underline">
+          <h2 className="block text-3xl font-semibold text-white text-left w-full">
             Top Anime
           </h2>
 

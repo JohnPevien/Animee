@@ -38,7 +38,7 @@ export default function Home({ topAnime, recentAnime }: Props) {
             <img
               src="https://res.cloudinary.com/dka0kjngw/image/upload/v1673789400/ANIMEE/ANIMEE_-_Hero_swg2p0.png"
               alt="anime header"
-              className="h-auto w-full object-cover backdrop-blur-xl"
+              className="h-auto w-full object-cover drop-shadow-[0_0_15px_rgba(23,105,255,0.8)]"
             />
           </div>
         </div>

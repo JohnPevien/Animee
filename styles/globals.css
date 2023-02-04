@@ -3,39 +3,39 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-dark bg-cover bg-no-repeat text-slate-200;
-  }
+    body {
+        @apply bg-dark bg-cover bg-no-repeat text-slate-200;
+    }
 }
 
 @layer components {
-  .btn-primary {
-    /* background-image: linear-gradient(90deg, #f5005e, #4801f5); */
-    @apply shadow-lg text-white font-bold py-2 px-4 rounded bg-primary transition-colors duration-300 ease-in-out hover:bg-primary-accent;
-  }
+    .btn-primary {
+        /* background-image: linear-gradient(90deg, #f5005e, #4801f5); */
+        @apply shadow-lg text-white font-bold py-2 px-4 rounded bg-primary transition-colors duration-300 ease-in-out hover:bg-primary-accent;
+    }
 
-  .gradient-heading {
-    @apply bg-gradient-to-r from-primary to-pink-200 bg-clip-text text-transparent;
-  }
+    .gradient-heading {
+        @apply bg-gradient-to-r from-primary to-cyan-300 bg-clip-text text-transparent w-fit;
+    }
 }
 
 @layer utilities {
-  .grid-auto-fit-xs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  }
-  .grid-auto-fit-sm {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
+    .grid-auto-fit-xs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    }
+    .grid-auto-fit-sm {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 
-  .grid-auto-fit-md {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+    .grid-auto-fit-md {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 
-  .grid-auto-fit-lg {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
+    .grid-auto-fit-lg {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 }

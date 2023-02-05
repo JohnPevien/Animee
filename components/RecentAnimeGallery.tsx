@@ -20,7 +20,7 @@ export default function RecentAnimeGallery({ data }: Props) {
                 key={index}
               >
                 <div>
-                  <Link href={`/anime/${anime.entry.mal_id}`}>
+                  <Link href={`/anime/?id=${anime.entry.mal_id}`}>
                     <img
                       src={anime.entry.images.webp.large_image_url}
                       alt={anime.entry.title}

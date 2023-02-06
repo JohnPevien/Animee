@@ -38,10 +38,38 @@ function Anime({}: Props) {
                 Back
             </Link>
 
-            <h1 className="text-4xl py-5 gradient-heading font-display font-medium sm:mt-10">
+            <h1 className="text-4xl py-5 gradient-heading font-display font-medium sm:mt-10 mb-8">
                 {data?.data?.title}
             </h1>
             <div className="flex flex-col sm:flex-row gap-12">
+                <div className="w-3/4">
+                    <div className="mb-5">
+                        <div className="flex flex-col gap-4">
+                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                                Details
+                            </p>
+
+                            <div className="flex flex-row gap-4 items-stretch rounded bg-primary min-h-[75px] w-fit">
+                                <div className="flex flex-wrap flex-row gap-4 items-center px-4  ">
+                                    <p className="font-medium text-xl">Score</p>
+                                    <p className="text-2xl font-bold">
+                                        {data?.data?.score}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mb-5">
+                        <div className="flex flex-col gap-4">
+                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                                Synopsis
+                            </p>
+                            <p className="max-w-prose">
+                                {data?.data?.synopsis}
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div className="w-1/4 bg-slate-900 h-full rounded-md">
                     <img
                         src={data?.data?.images.webp.large_image_url}
@@ -161,20 +189,20 @@ function Anime({}: Props) {
                                         Genres:
                                     </p>
                                     <div>
-                                        {data?.data?.genres.map(
-                                            (genre, index) => (
-                                                <>
-                                                    <a
-                                                        href={genre.url}
-                                                        key={index}
-                                                        className="inline-block text-primary"
-                                                    >
-                                                        {genre.name}
-                                                    </a>
-                                                    {', '}
-                                                </>
-                                            )
-                                        )}
+                                        <ul>
+                                            {data?.data?.genres.map(
+                                                (genre, index) => (
+                                                    <li key={index}>
+                                                        <a
+                                                            href={genre.url}
+                                                            className="inline-block text-primary"
+                                                        >
+                                                            {genre.name}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
                                     </div>
                                 </div>
 
@@ -183,20 +211,20 @@ function Anime({}: Props) {
                                         Themes:
                                     </p>
                                     <div>
-                                        {data?.data?.themes.map(
-                                            (theme, index) => (
-                                                <>
-                                                    <a
-                                                        href={theme.url}
-                                                        key={index}
-                                                        className="inline-block text-primary"
-                                                    >
-                                                        {theme.name}
-                                                    </a>
-                                                    {', '}
-                                                </>
-                                            )
-                                        )}
+                                        <ul>
+                                            {data?.data?.themes.map(
+                                                (theme, index) => (
+                                                    <li key={index}>
+                                                        <a
+                                                            href={theme.url}
+                                                            className="inline-block text-primary"
+                                                        >
+                                                            {theme.name}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
                                     </div>
                                 </div>
 
@@ -215,10 +243,43 @@ function Anime({}: Props) {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="mb-5">
+                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                                Statistics
+                            </p>
+                            <div className="flex flex-col gap-1">
+                                <div className="flex flex-wrap flex-row gap-1">
+                                    <p className="font-display font-medium">
+                                        Score:
+                                    </p>
+                                    <p className="">
+                                        {data?.data?.score} scored by (
+                                        {data?.data.scored_by} users)
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <div className="flex flex-wrap flex-row gap-1">
+                                    <p className="font-display font-medium">
+                                        Ranked:
+                                    </p>
+                                    <p className="">#{data?.data?.rank}</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <div className="flex flex-wrap flex-row gap-1">
+                                    <p className="font-display font-medium">
+                                        Popularity:
+                                    </p>
+                                    <p className="">
+                                        #{data?.data?.popularity}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div className="w-3/4"></div>
             </div>
         </section>
     )

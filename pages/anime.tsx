@@ -6,6 +6,8 @@ import Link from 'next/link'
 
 import { HiArrowLeft } from 'react-icons/hi'
 
+import AnimeSideBar from '@components/AnimeDetailsSideBar'
+
 type Props = {}
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -43,7 +45,7 @@ function Anime({}: Props) {
             </h1>
             <div className="flex flex-col sm:flex-row gap-12">
                 <div className="w-3/4">
-                    <div className="mb-5">
+                    <div className="mb-5 md:mb-12">
                         <div className="flex flex-col gap-4">
                             <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
                                 Details
@@ -59,7 +61,7 @@ function Anime({}: Props) {
                             </div>
                         </div>
                     </div>
-                    <div className="mb-5">
+                    <div className="mb-5 md:mb-12">
                         <div className="flex flex-col gap-4">
                             <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
                                 Synopsis
@@ -71,214 +73,7 @@ function Anime({}: Props) {
                     </div>
                 </div>
                 <div className="w-1/4 bg-slate-900 h-full rounded-md">
-                    <img
-                        src={data?.data?.images.webp.large_image_url}
-                        alt={data?.data?.title}
-                        className="h-auto w-full rounded-tr-md rounded-tl-md"
-                    />
-                    <div className="py-8 px-5">
-                        <div className="mb-5">
-                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
-                                Titles
-                            </p>
-
-                            <div className="flex flex-col gap-1">
-                                {data?.data?.title.toLowerCase() !==
-                                    data?.data?.title_english.toLowerCase() && (
-                                    <div className="flex flex-wrap flex-row gap-1">
-                                        <p className="font-display ">
-                                            {data?.data?.title}
-                                        </p>
-                                    </div>
-                                )}
-                                <div className="flex flex-row gap-2">
-                                    <p className="font-display font-medium">
-                                        English:
-                                    </p>
-                                    <p className="font-display ">
-                                        {data?.data?.title_english}
-                                    </p>
-                                </div>
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Japanese:
-                                    </p>
-                                    <p className="font-display ">
-                                        {data?.data?.title_japanese}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mb-5">
-                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
-                                Information
-                            </p>
-                            <div className="flex flex-col gap-1">
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Type:
-                                    </p>
-                                    <p className="">{data?.data?.type}</p>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Episodes:
-                                    </p>
-                                    <p className="">{data?.data?.episodes}</p>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Status:
-                                    </p>
-                                    <p className="">{data?.data?.status}</p>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Producers:
-                                    </p>
-                                    <div>
-                                        {data?.data?.producers.map(
-                                            (producer, index) => (
-                                                <a
-                                                    href={producer.url}
-                                                    key={index}
-                                                    className="block text-primary"
-                                                >
-                                                    {producer.name}
-                                                </a>
-                                            )
-                                        )}
-                                    </div>
-                                </div>
-
-                                {data?.data?.licensors &&
-                                    data?.data?.licensors?.length > 0 && (
-                                        <div className="flex flex-wrap flex-row gap-1">
-                                            <p className="font-display font-medium">
-                                                Licensors:
-                                            </p>
-                                            <div>
-                                                {data?.data?.licensors.map(
-                                                    (producer, index) => (
-                                                        <a
-                                                            href={producer.url}
-                                                            key={index}
-                                                            className="block text-primary"
-                                                        >
-                                                            {producer.name}
-                                                        </a>
-                                                    )
-                                                )}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Source:
-                                    </p>
-                                    <p className="">{data?.data?.source}</p>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Genres:
-                                    </p>
-                                    <div>
-                                        <ul>
-                                            {data?.data?.genres.map(
-                                                (genre, index) => (
-                                                    <li key={index}>
-                                                        <a
-                                                            href={genre.url}
-                                                            className="inline-block text-primary"
-                                                        >
-                                                            {genre.name}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Themes:
-                                    </p>
-                                    <div>
-                                        <ul>
-                                            {data?.data?.themes.map(
-                                                (theme, index) => (
-                                                    <li key={index}>
-                                                        <a
-                                                            href={theme.url}
-                                                            className="inline-block text-primary"
-                                                        >
-                                                            {theme.name}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Duration:
-                                    </p>
-                                    <p className="">{data?.data?.duration}</p>
-                                </div>
-
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Rating:
-                                    </p>
-                                    <p className="">{data?.data?.rating}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mb-5">
-                            <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
-                                Statistics
-                            </p>
-                            <div className="flex flex-col gap-1">
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Score:
-                                    </p>
-                                    <p className="">
-                                        {data?.data?.score} scored by (
-                                        {data?.data.scored_by} users)
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-1">
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Ranked:
-                                    </p>
-                                    <p className="">#{data?.data?.rank}</p>
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-1">
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display font-medium">
-                                        Popularity:
-                                    </p>
-                                    <p className="">
-                                        #{data?.data?.popularity}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <AnimeSideBar anime={data} />
                 </div>
             </div>
         </section>

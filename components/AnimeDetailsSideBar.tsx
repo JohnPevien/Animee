@@ -4,7 +4,6 @@ type Props = {
     anime: Anime.RootObject | undefined
 }
 function AnimeSideBar({ anime }: Props) {
-    console.log(anime)
     return (
         <>
             <img

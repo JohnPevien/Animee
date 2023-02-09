@@ -1,11 +1,11 @@
-import { useState } from "react";
-import type { RecentAnimeEpisodes } from "@type/index";
+import type { RecentAnimeEpisodes } from '@type/index'
+import { limitCharacters } from '@common/helpers'
 
-import Link from "next/link";
+import Link from 'next/link'
 
 type Props = {
-  data: RecentAnimeEpisodes.RootObject;
-};
+    data: RecentAnimeEpisodes.RootObject
+}
 
 export default function RecentAnimeGallery({ data }: Props) {
   return (
@@ -28,16 +28,7 @@ export default function RecentAnimeGallery({ data }: Props) {
                     />
                   </Link>
                 </div>
-                <div className="text-center">
-                  <h2 className="text-md max-w-prose text-slate-100">
-                    {anime.entry.title}
-                  </h2>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+            </div>
+        </section>
+    )
 }

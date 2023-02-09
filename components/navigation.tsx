@@ -30,9 +30,6 @@ export default function Navigation({}: Props) {
         </Link>
         <ul className="flex items-center ml-5">
           <li className="mr-5 text-lg">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="mr-5 text-lg">
             <Link href="/anime">Anime</Link>
           </li>
           <li className="mr-5 text-lg">

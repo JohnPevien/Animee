@@ -1,9 +1,17 @@
-import type { Anime } from '@type/index'
+import type { Anime, AnimeCharacters } from '@type/index'
+import useSWR from 'swr'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+
+import '@splidejs/react-splide/css/skyblue'
 
 type Props = {
     anime: Anime.RootObject | undefined
+    characters: AnimeCharacters.RootObject | undefined
 }
-function AnimeDetailsMain({ anime }: Props) {
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+
+function AnimeDetailsMain({ anime, characters }: Props) {
     return (
         <>
             <div className="mb-5 md:mb-12">
@@ -30,7 +38,45 @@ function AnimeDetailsMain({ anime }: Props) {
                     <p className="max-w-prose">{anime?.data?.synopsis}</p>
                 </div>
             </div>
+
+            <div className="mb-5 md:mb-12">
+                <div className="flex flex-col gap-4">
+                    <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                        Characters
+                    </p>
+                    {characters && (
+                        <Splide
+                            options={{
+                                gap: '1rem',
+                                rewind: true,
+                                drag: false,
+                                reduceMotion: true,
+                                perPage: 5,
+                                breakpoints: {
+                                    768: {
+                                        perPage: 3,
+                                    },
+                                },
+                            }}
+                        >
+                            {characters?.data?.map((character) => (
+                                <SplideSlide key={character?.character?.mal_id}>
+                                    <img
+                                        src={
+                                            character?.character?.images?.webp
+                                                ?.image_url
+                                        }
+                                        alt={`image of character ${character?.character?.name}`}
+                                        className="object-fit w-40 h-auto rounded-md"
+                                    />
+                                </SplideSlide>
+                            ))}
+                        </Splide>
+                    )}
+                </div>
+            </div>
         </>
     )
 }
+
 export default AnimeDetailsMain

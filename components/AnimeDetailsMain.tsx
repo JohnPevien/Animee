@@ -35,7 +35,7 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                     <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
                         Synopsis
                     </p>
-                    <p className="max-w-prose">{anime?.data?.synopsis}</p>
+                    <p className="sm:text-lg">{anime?.data?.synopsis}</p>
                 </div>
             </div>
 

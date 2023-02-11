@@ -51,24 +51,34 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                 rewind: true,
                                 drag: false,
                                 reduceMotion: true,
-                                perPage: 5,
-                                breakpoints: {
-                                    768: {
-                                        perPage: 3,
-                                    },
-                                },
+                                autoWidth: false,
+                                // perPage: 3,
+                                // breakpoints: {
+                                //     768: {
+                                //         perPage: 2,
+                                //     },
+                                // },
                             }}
                         >
                             {characters?.data?.map((character) => (
-                                <SplideSlide key={character?.character?.mal_id}>
+                                <SplideSlide
+                                    key={character?.character?.mal_id}
+                                    className="flex flex-col gap-2 my-12 border-2 border-slate-900 rounded-md max-w-[200px] pb-3"
+                                >
                                     <img
                                         src={
                                             character?.character?.images?.webp
                                                 ?.image_url
                                         }
                                         alt={`image of character ${character?.character?.name}`}
-                                        className="object-fit w-40 h-auto rounded-md"
+                                        className="object-cover w-full h-auto"
                                     />
+                                    <div className="text-center">
+                                        <h2 className="font-semibold">
+                                            {character?.character?.name}
+                                        </h2>
+                                        <p>{character?.role}</p>
+                                    </div>
                                 </SplideSlide>
                             ))}
                         </Splide>

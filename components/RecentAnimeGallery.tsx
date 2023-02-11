@@ -32,6 +32,11 @@ export default function RecentAnimeGallery({ data }: Props) {
                                         />
                                     </Link>
                                 </div>
+                                <div className="text-center">
+                                    <h2 className="text-md max-w-prose text-slate-100">
+                                        {anime.entry.title}
+                                    </h2>
+                                </div>
                             </div>
                         )
                     })}

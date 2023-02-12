@@ -85,6 +85,29 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                     )}
                 </div>
             </div>
+
+            <div className="mb-5 md:mb-12">
+                <div className="flex flex-col gap-4">
+                    <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                        Trailer
+                    </p>
+                    <div>
+                        {anime?.data?.trailer.youtube_id && (
+                            <div className="relative md:w-2/3 pb-[56.25%]">
+                                <iframe
+                                    width="100%"
+                                    height="auto"
+                                    src={`https://www.youtube.com/embed/${anime?.data?.trailer.youtube_id}?modestbranding=1`}
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    allowFullScreen
+                                    className="absolute top-0 left-0 w-full h-full "
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

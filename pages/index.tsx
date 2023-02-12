@@ -22,8 +22,9 @@ export default function Home({ topAnime, recentAnime }: Props) {
       </Head>
       <section className="bg-dark p-12 lg:pb-0 flex flex-row w-full ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 mx-auto container">
-          <div className="flex flex-col md:mr-12 items-center justify-center">
-            <h1 className="text-4xl  md:text-6xl  mb-8 font-bold">
+
+          <div className="flex flex-col  items-center justify-center">
+            <h1 className="text-4xl lg:text-7xl  mb-8 font-bold">
               Explore the World of <span className="text-primary">Anime</span> -
               Discover Your Next <span className="text-primary">Favorite </span>
               Series
@@ -43,7 +44,7 @@ export default function Home({ topAnime, recentAnime }: Props) {
           </div>
         </div>
       </section>
-      <section className="p-5 lg:p-24">
+      <section className="px-5 py-12 lg:p-24">
         <div className="flex flex-col justify-center items-center gap-12">
           <h2 className="block text-4xl font-semibold text-white text-left  w-full">
             <span className="gradient-heading">Recent Episodes</span>
@@ -59,7 +60,7 @@ export default function Home({ topAnime, recentAnime }: Props) {
           </Link>
         </div>
       </section>
-      <section className="p-5 lg:p-24">
+      <section className="px-5 py-12 ">
         <div className="flex flex-col justify-center items-center gap-12">
           <h2 className="block text-4xl font-semibold text-white text-left w-full">
             <span className="gradient-heading">Top Anime</span>

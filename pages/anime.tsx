@@ -38,7 +38,7 @@ function Anime({}: Props) {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <section className="container mx-auto mb-20 sm:mt-10 p-5 sm:p-0">
+        <section className="container mx-auto mb-20 sm:mt-10 p-5 md:p-0">
             <Link
                 href="/"
                 className="btn-primary flex flex-row items-center w-fit gap-1"
@@ -50,7 +50,7 @@ function Anime({}: Props) {
             <h1 className="text-4xl py-5 gradient-heading font-display font-medium sm:mt-10 mb-8">
                 {data?.data?.title}
             </h1>
-            <div className="flex flex-col md:flex-row gap-12 ">
+            <div className="flex flex-col-reverse md:flex-row gap-12 ">
                 <div className=" w-full md:w-1/2 lg:w-3/4">
                     {data && !characterRequest?.isLoading && characterData && (
                         <AnimeDetailsMain

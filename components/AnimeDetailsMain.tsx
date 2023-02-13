@@ -63,7 +63,7 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                             {characters?.data?.map((character) => (
                                 <SplideSlide
                                     key={character?.character?.mal_id}
-                                    className="flex flex-col gap-2 my-12 border-2 border-slate-900 rounded-md max-w-[200px] pb-3"
+                                    className="flex flex-col gap-2 my-12 max-w-[150px] pb-3"
                                 >
                                     <img
                                         src={

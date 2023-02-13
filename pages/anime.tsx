@@ -41,17 +41,17 @@ function Anime({}: Props) {
         <section className="container mx-auto mb-20 sm:mt-10 p-5 md:p-0">
             <Link
                 href="/"
-                className="btn-primary flex flex-row items-center w-fit gap-1"
+                className="btn-primary flex flex-row items-center w-fit gap-1 mb-10 md:mb-16"
             >
                 <HiArrowLeft />
                 Back
             </Link>
 
-            <h1 className="text-4xl py-5 gradient-heading font-display font-medium sm:mt-10 mb-8">
-                {data?.data?.title}
-            </h1>
             <div className="flex flex-col-reverse md:flex-row gap-12 ">
                 <div className=" w-full md:w-1/2 lg:w-3/4">
+                    <h1 className="text-4xl gradient-heading font-display font-medium mb-10 pb-2">
+                        {data?.data?.title}
+                    </h1>
                     {data && !characterRequest?.isLoading && characterData && (
                         <AnimeDetailsMain
                             anime={data}

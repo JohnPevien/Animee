@@ -1,5 +1,4 @@
 import type { TopAnime } from '@type/index'
-import { limitCharacters } from '@common/helpers'
 
 import Link from 'next/link'
 
@@ -11,7 +10,7 @@ export default function TopAnimeGallery({ data }: Props) {
     return (
         <section className="container">
             <div className="flex flex-col sm:flex-row">
-                <div className="w-full grid grid-auto-fit-xs gap-y-12 justify-items-center">
+                <div className="w-full grid grid-auto-fit-xs gap-0 justify-items-center">
                     {data.data.map((anime, index) => {
                         if (index > 15) return
                         return (
@@ -20,7 +19,7 @@ export default function TopAnimeGallery({ data }: Props) {
                                 key={index}
                             >
                                 <div>
-                                    <Link href={`/anime/${anime.mal_id}`}>
+                                    <Link href={`/anime/?id=${anime.mal_id}`}>
                                         <img
                                             src={
                                                 anime.images.webp
@@ -33,7 +32,7 @@ export default function TopAnimeGallery({ data }: Props) {
                                 </div>
                                 <div className="text-center">
                                     <h2 className="text-md max-w-prose text-slate-100">
-                                        {limitCharacters(anime.title, 65)}
+                                        {anime.title}
                                     </h2>
                                 </div>
                             </div>

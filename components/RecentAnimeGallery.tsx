@@ -1,5 +1,4 @@
 import type { RecentAnimeEpisodes } from '@type/index'
-import { limitCharacters } from '@common/helpers'
 
 import Link from 'next/link'
 
@@ -11,7 +10,7 @@ export default function RecentAnimeGallery({ data }: Props) {
     return (
         <section className="container">
             <div className="flex flex-col sm:flex-row">
-                <div className="w-full grid grid-auto-fit-xs gap-y-12 justify-items-center">
+                <div className="w-full grid grid-auto-fit-xs gap-y-5 justify-items-center">
                     {data.data.map((anime, index) => {
                         if (index > 15) return
                         return (
@@ -20,7 +19,9 @@ export default function RecentAnimeGallery({ data }: Props) {
                                 key={index}
                             >
                                 <div>
-                                    <Link href={`/anime/${anime.entry.mal_id}`}>
+                                    <Link
+                                        href={`/anime/?id=${anime.entry.mal_id}`}
+                                    >
                                         <img
                                             src={
                                                 anime.entry.images.webp
@@ -33,7 +34,7 @@ export default function RecentAnimeGallery({ data }: Props) {
                                 </div>
                                 <div className="text-center">
                                     <h2 className="text-md max-w-prose text-slate-100">
-                                        {limitCharacters(anime.entry.title, 65)}
+                                        {anime.entry.title}
                                     </h2>
                                 </div>
                             </div>

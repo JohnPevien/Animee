@@ -20,18 +20,24 @@ function AnimeSideBar({ anime }: Props) {
                     <div className="flex flex-col gap-1">
                         {anime?.data?.title.toLowerCase() !==
                             anime?.data?.title_english.toLowerCase() && (
-                            <div className="flex flex-wrap flex-row gap-1">
-                                <p className="font-display ">
-                                    {anime?.data?.title}
-                                </p>
-                            </div>
+                            <>
+                                <div className="flex flex-wrap flex-row gap-1">
+                                    <p className="font-display ">
+                                        {anime?.data?.title}
+                                    </p>
+                                </div>
+
+                                <div className="flex flex-row gap-2">
+                                    <p className="font-display font-medium">
+                                        English:
+                                    </p>
+                                    <p className="font-display ">
+                                        {anime?.data?.title_english}
+                                    </p>
+                                </div>
+                            </>
                         )}
-                        <div className="flex flex-row gap-2">
-                            <p className="font-display font-medium">English:</p>
-                            <p className="font-display ">
-                                {anime?.data?.title_english}
-                            </p>
-                        </div>
+
                         <div className="flex flex-wrap flex-row gap-1">
                             <p className="font-display font-medium">
                                 Japanese:
@@ -81,6 +87,21 @@ function AnimeSideBar({ anime }: Props) {
                                         </a>
                                     )
                                 )}
+                            </div>
+                        </div>
+
+                        <div className="flex flex-wrap flex-row gap-1">
+                            <p className="font-display font-medium">Studios:</p>
+                            <div>
+                                {anime?.data?.studios.map((studio, index) => (
+                                    <a
+                                        href={studio.url}
+                                        key={index}
+                                        className="block text-primary"
+                                    >
+                                        {studio.name}
+                                    </a>
+                                ))}
                             </div>
                         </div>
 

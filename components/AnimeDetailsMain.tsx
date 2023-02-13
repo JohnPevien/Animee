@@ -93,7 +93,7 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                     </p>
                     <div>
                         {anime?.data?.trailer.youtube_id && (
-                            <div className="relative md:w-2/3 pb-[56.25%]">
+                            <div className="relative w-full pb-[56.25%]">
                                 <iframe
                                     width="100%"
                                     height="auto"

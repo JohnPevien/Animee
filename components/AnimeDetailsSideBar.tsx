@@ -18,23 +18,27 @@ function AnimeSideBar({ anime }: Props) {
                     </p>
 
                     <div className="flex flex-col gap-1">
-                        {anime?.data?.title.toLowerCase() !==
-                            anime?.data?.title_english.toLowerCase() && (
+                        {anime?.data?.title_english && (
                             <>
-                                <div className="flex flex-wrap flex-row gap-1">
-                                    <p className="font-display ">
-                                        {anime?.data?.title}
-                                    </p>
-                                </div>
+                                {anime?.data?.title.toLowerCase() !==
+                                    anime?.data?.title_english.toLowerCase() && (
+                                    <>
+                                        <div className="flex flex-wrap flex-row gap-1">
+                                            <p className="font-display ">
+                                                {anime?.data?.title}
+                                            </p>
+                                        </div>
 
-                                <div className="flex flex-row gap-2">
-                                    <p className="font-display font-medium">
-                                        English:
-                                    </p>
-                                    <p className="font-display ">
-                                        {anime?.data?.title_english}
-                                    </p>
-                                </div>
+                                        <div className="flex flex-row gap-2">
+                                            <p className="font-display font-medium">
+                                                English:
+                                            </p>
+                                            <p className="font-display ">
+                                                {anime?.data?.title_english}
+                                            </p>
+                                        </div>
+                                    </>
+                                )}
                             </>
                         )}
 

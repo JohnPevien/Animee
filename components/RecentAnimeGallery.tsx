@@ -10,12 +10,12 @@ export default function RecentAnimeGallery({ data }: Props) {
     return (
         <section className="container">
             <div className="flex flex-col sm:flex-row">
-                <div className="w-full grid grid-auto-fit-xs gap-y-5 justify-items-center">
+                <div className="w-full grid grid-auto-fit-sm gap-x-0 gap-y-10 justify-items-center">
                     {data.data.map((anime, index) => {
                         if (index > 15) return
                         return (
                             <div
-                                className="flex flex-col gap-3 items-center  px-4 w-fit-content "
+                                className="flex flex-col gap-2 items-center  px-4 w-fit-content "
                                 key={index}
                             >
                                 <div>
@@ -28,12 +28,12 @@ export default function RecentAnimeGallery({ data }: Props) {
                                                     .large_image_url
                                             }
                                             alt={anime.entry.title}
-                                            className="h-auto sm:w-40 max-h-[225px]  hover:scale-110 object-cover transition-all duration-300 ease-in-out hover:drop-shadow-lg drop-shadow-slate-100"
+                                            className="h-auto w-full max-h-[300px] object-cover transition-all duration-300 ease-in-out hover:drop-shadow-lg"
                                         />
                                     </Link>
                                 </div>
                                 <div className="text-center">
-                                    <h2 className="text-md max-w-prose text-slate-100">
+                                    <h2 className="text-md max-w-[20ch] whitespace-nowrap  text-slate-100 overflow-hidden  text-ellipsis">
                                         {anime.entry.title}
                                     </h2>
                                 </div>

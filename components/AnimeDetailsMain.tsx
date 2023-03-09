@@ -56,8 +56,8 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                         className="flex flex-col "
                                         key={character?.character?.mal_id}
                                     >
-                                        <div className="mb-10 bg-slate-900 rounded-lg w-max-content">
-                                            <div className="relative">
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+                                            <div className="relative w-full h-52 ">
                                                 <Image
                                                     src={
                                                         character?.character
@@ -65,9 +65,8 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                                             ?.image_url
                                                     }
                                                     alt={`image of character ${character?.character?.name}`}
-                                                    className="rounded-tr-lg rounded-tl-lg"
-                                                    width={300}
-                                                    height={225}
+                                                    className="rounded-tr-lg rounded-tl-lg object-cover object-center"
+                                                    fill
                                                 />
                                             </div>
 
@@ -75,14 +74,14 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                                 <h3 className="text-sm text-center">
                                                     {character?.character?.name}
                                                 </h3>
-                                                <p className="text-center">
+                                                <p className="text-center text-xs">
                                                     {character?.role}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div className="mb-10 bg-slate-900 rounded-lg w-max-content">
-                                            <div className="relative">
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+                                            <div className="relative w-full h-52">
                                                 <Image
                                                     src={
                                                         character
@@ -91,9 +90,8 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                                             ?.jpg?.image_url
                                                     }
                                                     alt={`image of voice actor ${character?.voice_actors[0]?.person?.name}`}
-                                                    className="rounded-tr-lg rounded-tl-lg"
-                                                    width={300}
-                                                    height={225}
+                                                    className="rounded-tr-lg rounded-tl-lg object-cover object-center"
+                                                    fill
                                                 />
                                             </div>
 

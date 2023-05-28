@@ -33,7 +33,7 @@ function Anime({}: Props) {
         // if (error || !animeData) {
         //     router.push('/404')
         // }
-    }, [error, router])
+    }, [router])
 
     if (isLoading) return <div>Loading...</div>
 

@@ -2,6 +2,8 @@ import type { Anime, AnimeCharacters } from '@type/index'
 import useSWR from 'swr'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 
+import Image from 'next/image'
+
 import '@splidejs/react-splide/css/skyblue'
 
 type Props = {
@@ -12,6 +14,7 @@ type Props = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 function AnimeDetailsMain({ anime, characters }: Props) {
+    console.log(characters)
     return (
         <>
             <div className="mb-5 md:mb-12">
@@ -42,9 +45,73 @@ function AnimeDetailsMain({ anime, characters }: Props) {
             <div className="mb-5 md:mb-12">
                 <div className="flex flex-col gap-4">
                     <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
-                        Characters
+                        Characters And Cast
                     </p>
-                    {characters && (
+
+                    <div className="flex flex-row overflow-x-auto gap-5 md:gap-8">
+                        {characters && (
+                            <>
+                                {characters?.data?.map((character) => (
+                                    <div
+                                        className="flex flex-col "
+                                        key={character?.character?.mal_id}
+                                    >
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+                                            <div className="relative w-full h-52 ">
+                                                <Image
+                                                    src={
+                                                        character?.character
+                                                            ?.images?.webp
+                                                            ?.image_url
+                                                    }
+                                                    alt={`image of character ${character?.character?.name}`}
+                                                    className="rounded-tr-lg rounded-tl-lg object-cover object-center"
+                                                    fill
+                                                />
+                                            </div>
+
+                                            <div className="px-10 py-2">
+                                                <h3 className="text-sm text-center">
+                                                    {character?.character?.name}
+                                                </h3>
+                                                <p className="text-center text-xs">
+                                                    {character?.role}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+                                            <div className="relative w-full h-52">
+                                                <Image
+                                                    src={
+                                                        character
+                                                            ?.voice_actors[0]
+                                                            ?.person?.images
+                                                            ?.jpg?.image_url
+                                                    }
+                                                    alt={`image of voice actor ${character?.voice_actors[0]?.person?.name}`}
+                                                    className="rounded-tr-lg rounded-tl-lg object-cover object-center"
+                                                    fill
+                                                />
+                                            </div>
+
+                                            <div className="px-10 py-2">
+                                                <h3 className="text-sm text-center">
+                                                    {
+                                                        character
+                                                            ?.voice_actors[0]
+                                                            ?.person?.name
+                                                    }
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                    </div>
+
+                    {/* {characters && (
                         <Splide
                             options={{
                                 gap: '1rem',
@@ -52,37 +119,62 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                 drag: false,
                                 reduceMotion: true,
                                 autoWidth: false,
-                                // perPage: 3,
-                                // breakpoints: {
-                                //     768: {
-                                //         perPage: 2,
-                                //     },
-                                // },
+                                slidesPerView: 1,
+                                perPage: 2,
+                                breakpoints: {
+                                    640: {
+                                        perPage: 1,
+                                    },
+                                },
                             }}
                         >
                             {characters?.data?.map((character) => (
                                 <SplideSlide
                                     key={character?.character?.mal_id}
-                                    className="flex flex-col gap-2 my-12 max-w-[150px] pb-3"
+                                    className=" flex flex-row gap-5 bg-slate-900"
                                 >
-                                    <img
-                                        src={
-                                            character?.character?.images?.webp
-                                                ?.image_url
-                                        }
-                                        alt={`image of character ${character?.character?.name}`}
-                                        className="object-cover w-full h-auto"
-                                    />
-                                    <div className="text-center">
-                                        <h2 className="font-semibold">
-                                            {character?.character?.name}
-                                        </h2>
-                                        <p>{character?.role}</p>
+                                    <div className="flex flex-col gap-2 my-12 p-3 items-center justify-center">
+                                        <img
+                                            src={
+                                                character?.character?.images
+                                                    ?.webp?.image_url
+                                            }
+                                            alt={`image of character ${character?.character?.name}`}
+                                            className="object-cover  h-auto md:w-36 "
+                                        />
+                                        <div>
+                                            <h2 className="font-semibold text-center">
+                                                {character?.character?.name}
+                                            </h2>
+                                            <p className="text-center">
+                                                {character?.role}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col gap-2 my-12 p-3 rounded items-center">
+                                        <img
+                                            src={
+                                                character?.voice_actors[0]
+                                                    ?.person?.images?.jpg
+                                                    ?.image_url
+                                            }
+                                            alt={`image of character ${character?.character?.name}`}
+                                            className="object-cover md:w-36 h-auto"
+                                        />
+                                        <div>
+                                            <h2 className="font-semibold text-center">
+                                                {
+                                                    character?.voice_actors[0]
+                                                        ?.person?.name
+                                                }
+                                            </h2>
+                                        </div>
                                     </div>
                                 </SplideSlide>
                             ))}
                         </Splide>
-                    )}
+                    )} */}
                 </div>
             </div>
 

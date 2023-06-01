@@ -25,41 +25,42 @@ export default function Home({ topAnime, recentAnime }: Props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
+            <div className="container">
+                <section className="px-5 py-12 ">
+                    <div className="flex flex-col justify-center items-center gap-12">
+                        <h2 className="block text-4xl font-semibold text-white text-left  w-full">
+                            <span className="gradient-heading">
+                                Recent Episodes
+                            </span>
+                        </h2>
 
-            <section className="px-5 py-12 ">
-                <div className="flex flex-col justify-center items-center gap-12">
-                    <h2 className="block text-4xl font-semibold text-white text-left  w-full">
-                        <span className="gradient-heading">
-                            Recent Episodes
-                        </span>
-                    </h2>
+                        <RecentAnimeGallery data={recentAnime} />
 
-                    <RecentAnimeGallery data={recentAnime} />
+                        <Link
+                            href="/anime/recent"
+                            className="flex flex-row justify-center items-center gap-3"
+                        >
+                            View All Recent Episodes <HiArrowLongRight />
+                        </Link>
+                    </div>
+                </section>
+                <section className="px-5 py-12 ">
+                    <div className="flex flex-col justify-center items-center gap-12">
+                        <h2 className="block text-4xl font-semibold text-white text-left w-full">
+                            <span className="gradient-heading">Top Anime</span>
+                        </h2>
 
-                    <Link
-                        href="/anime/recent"
-                        className="flex flex-row justify-center items-center gap-3"
-                    >
-                        View All Recent Episodes <HiArrowLongRight />
-                    </Link>
-                </div>
-            </section>
-            <section className="px-5 py-12 ">
-                <div className="flex flex-col justify-center items-center gap-12">
-                    <h2 className="block text-4xl font-semibold text-white text-left w-full">
-                        <span className="gradient-heading">Top Anime</span>
-                    </h2>
+                        <TopAnimeGallery data={topAnime} />
 
-                    <TopAnimeGallery data={topAnime} />
-
-                    <Link
-                        href="/anime/recent"
-                        className="flex flex-row justify-center items-center gap-3"
-                    >
-                        View All Top Anime <HiArrowLongRight />
-                    </Link>
-                </div>
-            </section>
+                        <Link
+                            href="/anime/recent"
+                            className="flex flex-row justify-center items-center gap-3"
+                        >
+                            View All Top Anime <HiArrowLongRight />
+                        </Link>
+                    </div>
+                </section>
+            </div>
         </>
     )
 }

@@ -24,6 +24,9 @@ module.exports = {
                 'primary-accent': 'rgb(11, 59, 183)',
             },
         },
+        container: {
+            center: true,
+        },
     },
     plugins: [require('@tailwindcss/typography')],
 }

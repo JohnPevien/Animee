@@ -1,6 +1,4 @@
 import type { Anime, AnimeCharacters } from '@type/index'
-import useSWR from 'swr'
-import { Splide, SplideSlide } from '@splidejs/react-splide'
 
 import Image from 'next/image'
 
@@ -14,7 +12,6 @@ type Props = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 function AnimeDetailsMain({ anime, characters }: Props) {
-    console.log(characters)
     return (
         <>
             <div className="mb-5 md:mb-12">

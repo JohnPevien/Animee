@@ -29,12 +29,6 @@ function Anime({}: Props) {
 
     const characterData = characterRequest?.data
 
-    useEffect(() => {
-        // if (error || !animeData) {
-        //     router.push('/404')
-        // }
-    }, [router])
-
     if (isLoading) return <div>Loading...</div>
 
     return (

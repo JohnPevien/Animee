@@ -195,7 +195,7 @@ function AnimeSideBar({ anime }: Props) {
                             <p className="font-display font-medium">Score:</p>
                             <p className="">
                                 {anime?.data?.score} scored by (
-                                {anime?.data.scored_by} users)
+                                {anime?.data?.scored_by} users)
                             </p>
                         </div>
                     </div>

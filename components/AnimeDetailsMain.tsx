@@ -42,7 +42,7 @@ function AnimeDetailsMain({ anime, characters }: Props) {
             <div className="mb-5 md:mb-12">
                 <div className="flex flex-col gap-4">
                     <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
-                        Characters And Cast
+                        Characters
                     </p>
 
                     <div className="flex flex-row overflow-x-auto gap-5 md:gap-8">
@@ -53,7 +53,7 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                         className="flex flex-col "
                                         key={character?.character?.mal_id}
                                     >
-                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-48">
                                             <div className="relative w-full h-52 ">
                                                 <Image
                                                     src={
@@ -76,8 +76,29 @@ function AnimeDetailsMain({ anime, characters }: Props) {
                                                 </p>
                                             </div>
                                         </div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                    </div>
+                </div>
+            </div>
 
-                                        <div className="mb-12 bg-slate-900 rounded-lg w-max-content">
+            <div className="mb-5 md:mb-12">
+                <div className="flex flex-col gap-4">
+                    <p className="border-b-2 border-primary mb-2 font-display font-semibold gradient-heading sm:text-xl">
+                        Cast
+                    </p>
+
+                    <div className="flex flex-row overflow-x-auto gap-5 md:gap-8">
+                        {characters && (
+                            <>
+                                {characters?.data?.map((character) => (
+                                    <div
+                                        className="flex flex-col "
+                                        key={character?.character?.mal_id}
+                                    >
+                                        <div className="mb-12 bg-slate-900 rounded-lg w-48">
                                             <div className="relative w-full h-52">
                                                 <Image
                                                     src={

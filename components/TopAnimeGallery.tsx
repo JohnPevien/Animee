@@ -19,7 +19,9 @@ export default function TopAnimeGallery({ data }: Props) {
                                 key={index}
                             >
                                 <div>
-                                    <Link href={`/anime/?id=${anime.mal_id}`}>
+                                    <Link
+                                        href={`/anime/details?id=${anime.mal_id}`}
+                                    >
                                         <img
                                             src={
                                                 anime.images.webp

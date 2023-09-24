@@ -22,7 +22,10 @@ export default function Home({ topAnime, recentAnime }: Props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
+            <Header
+                headline="Your *Anime* & *Manga* Sanctuary"
+                subheading="Discover, explore, and get hyped with stories that speak to your soul."
+            />
             <div className="container"></div>
         </>
     )

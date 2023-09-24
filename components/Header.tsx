@@ -8,7 +8,7 @@ export default function Header({ headline, subheading }: props) {
     return (
         <section className="bg-dark p-12 lg:pb-0 flex flex-row w-full ">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 mx-auto container">
-                <div className="flex flex-col  items-center justify-center">
+                <div className="flex flex-col  items-start justify-center">
                     <h1 className="text-4xl lg:text-7xl  mb-8 font-bold">
                         {headlineParts.map((part, index) =>
                             index % 2 === 0 ? (

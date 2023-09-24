@@ -24,7 +24,10 @@ export default function Home({ topAnime, recentAnime }: Props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
+            <Header
+                headline="*Anime* for the *Adventurous*"
+                subheading="Dive into a universe of color, action, and endless possibilities."
+            />
             <div className="container">
                 <section className="px-5 py-12 ">
                     <div className="flex flex-col justify-center items-center gap-12">

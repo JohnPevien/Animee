@@ -9,13 +9,13 @@ module.exports = {
         fontFamily: {
             sans: ['Poppins', 'sans-serif'],
         },
-        screens: {
-            xl: '1440px',
-            lg: '1200px',
-            md: '768px',
-            sm: '640px',
-            xs: '480px',
-        },
+        // screens: {
+        //     xl: '1400px',
+        //     lg: '1200px',
+        //     md: '768px',
+        //     sm: '640px',
+        //     xs: '480px',
+        // },
         extend: {
             colors: {
                 dark: '#000000',

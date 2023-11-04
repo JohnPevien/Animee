@@ -25,16 +25,13 @@ function AnimeSideBar({ anime }: Props) {
                                     <>
                                         <div className="flex flex-wrap flex-row gap-1">
                                             <p className="font-display ">
-                                                {anime?.data?.title}
+                                                {anime?.data?.title_english}
                                             </p>
                                         </div>
 
                                         <div className="flex flex-row gap-2">
-                                            <p className="font-display font-medium">
-                                                English:
-                                            </p>
-                                            <p className="font-display ">
-                                                {anime?.data?.title_english}
+                                            <p className="font-display text-sm">
+                                                {anime?.data?.title}
                                             </p>
                                         </div>
                                     </>
@@ -43,10 +40,7 @@ function AnimeSideBar({ anime }: Props) {
                         )}
 
                         <div className="flex flex-wrap flex-row gap-1">
-                            <p className="font-display font-medium">
-                                Japanese:
-                            </p>
-                            <p className="font-display ">
+                            <p className="font-display text-sm">
                                 {anime?.data?.title_japanese}
                             </p>
                         </div>

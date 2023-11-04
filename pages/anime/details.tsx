@@ -44,7 +44,9 @@ function Anime({}: Props) {
             <div className="flex flex-col-reverse md:flex-row gap-12 ">
                 <div className=" w-full md:w-1/2 lg:w-3/4">
                     <h1 className="text-4xl gradient-heading font-display font-medium mb-10 pb-2">
-                        {data?.data?.title}
+                        {data?.data?.title_english
+                            ? data.data.title_english
+                            : data?.data?.title}
                     </h1>
                     {data && !characterRequest?.isLoading && characterData && (
                         <AnimeDetailsMain

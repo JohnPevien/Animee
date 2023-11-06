@@ -14,6 +14,14 @@ type Props = {}
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 function Anime({}: Props) {
+    useEffect(() => {
+        ;(async () => {
+            const LocomotiveScroll = (await import('locomotive-scroll')).default
+
+            const locomotiveScroll = new LocomotiveScroll()
+        })()
+    }, [])
+
     const router = useRouter()
     const { id } = router.query
 

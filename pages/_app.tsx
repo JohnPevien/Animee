@@ -1,5 +1,7 @@
 import '../styles/globals.css'
-import { Poppins } from "next/font/google"
+import { Poppins } from 'next/font/google'
+import { useLenis } from '@studio-freight/react-lenis'
+import { useEffect } from 'react'
 
 import type { AppProps } from 'next/app'
 

@@ -15,11 +15,16 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 function Anime({}: Props) {
     useEffect(() => {
-        ;(async () => {
-            const LocomotiveScroll = (await import('locomotive-scroll')).default
+        if (typeof window !== 'undefined') {
+            const LocomotiveScroll = require('locomotive-scroll').default
 
-            const locomotiveScroll = new LocomotiveScroll()
-        })()
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+            })
+
+            return () => scroll.destroy()
+        }
     }, [])
 
     const router = useRouter()
@@ -40,7 +45,10 @@ function Anime({}: Props) {
     if (isLoading) return <div>Loading...</div>
 
     return (
-        <section className="container mx-auto mb-20 sm:mt-10 p-5 md:p-0">
+        <section
+            className="container mx-auto mb-20 sm:mt-10 p-5 md:p-0"
+            data-scroll-container
+        >
             <Link
                 href="/"
                 className="btn-primary flex flex-row items-center w-fit gap-1 mb-10 md:mb-16"
@@ -49,8 +57,11 @@ function Anime({}: Props) {
                 Back
             </Link>
 
-            <div className="flex flex-col-reverse md:flex-row gap-12 ">
-                <div className=" w-full md:w-1/2 lg:w-3/4">
+            <div
+                className="flex flex-col-reverse md:flex-row gap-12 "
+                data-scroll-section
+            >
+                <div className=" w-full md:w-1/2 lg:w-3/4" data-scroll>
                     <h1 className="text-4xl gradient-heading font-display font-medium mb-10 pb-2">
                         {data?.data?.title_english
                             ? data.data.title_english

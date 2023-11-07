@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { Poppins } from "next/font/google"
+import { Poppins } from 'next/font/google'
 
 import type { AppProps } from 'next/app'
 
@@ -19,7 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
                 }
             `}</style>
             <Navigation />
-            <main className="relative flex flex-col mt-20 ">
+            <main
+                className="relative flex flex-col mt-20 "
+                data-scroll-container
+            >
                 <Component {...pageProps} />
             </main>
         </>

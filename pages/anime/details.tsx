@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 import { HiArrowLeft } from 'react-icons/hi'
 
-import AnimeDetailsSideBar from '@components/AnimeDetailsSideBar'
-import AnimeDetailsMain from '@components/AnimeDetailsMain'
+import AnimeDetailsSideBar from '@components/AnimeDetails/AnimeDetailsSideBar'
+import AnimeDetailsMain from '@components/AnimeDetails/AnimeDetailsMain'
 
 type Props = {}
 
@@ -20,7 +20,6 @@ function Anime({}: Props) {
 
             const scroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
-                smooth: true,
             })
 
             return () => scroll.destroy()
@@ -62,11 +61,16 @@ function Anime({}: Props) {
                 data-scroll-section
             >
                 <div className=" w-full md:w-1/2 lg:w-3/4" data-scroll>
-                    <h1 className="text-4xl gradient-heading font-display font-medium mb-10 pb-2">
+                    <h1 className="text-4xl gradient-heading font-display font-medium mb-2">
                         {data?.data?.title_english
                             ? data.data.title_english
                             : data?.data?.title}
                     </h1>
+                    {data?.data?.title && (
+                        <h2 className="text-xl gradient-heading font-display mb-10 pb-2">
+                            ({data?.data?.title})
+                        </h2>
+                    )}
                     {data && !characterRequest?.isLoading && characterData && (
                         <AnimeDetailsMain
                             anime={data}

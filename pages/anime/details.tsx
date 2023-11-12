@@ -40,7 +40,7 @@ function Anime({}: Props) {
     )
 
     const characterData = characterRequest?.data
-
+    if (error) return <div>Failed to load</div>
     if (isLoading) return <div>Loading...</div>
 
     return (

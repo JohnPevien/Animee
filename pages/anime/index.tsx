@@ -70,17 +70,31 @@ export default function Home({ topAnime, recentAnime }: Props) {
 
 // getStaticProps jikan anime api
 export async function getStaticProps() {
-    const res = await fetch('https://api.jikan.moe/v4/top/anime')
-    const topAnimedata: TopAnime.RootObject = await res.json()
+    try {
+        const topAnimeRes = await fetch('https://api.jikan.moe/v4/top/anime')
+        if (!topAnimeRes.ok) {
+            throw new Error('Top Anime API request failed')
+        }
+        const topAnimedata = await topAnimeRes.json()
 
-    // sleep for 2 seconds to prevent api rate limit
-    await new Promise((r) => setTimeout(r, 2000))
+        // Wait for 2 seconds before the next request
+        await new Promise((resolve) => setTimeout(resolve, 2000))
 
-    //request recent anime
-    const res2 = await fetch('https://api.jikan.moe/v4/watch/episodes')
-    const recentAnimedata: RecentAnimeEpisodes.RootObject = await res2.json()
+        const recentAnimeRes = await fetch(
+            'https://api.jikan.moe/v4/watch/episodes'
+        )
+        if (!recentAnimeRes.ok) {
+            throw new Error('Recent Anime API request failed')
+        }
+        const recentAnimedata = await recentAnimeRes.json()
 
-    return {
-        props: { topAnime: topAnimedata, recentAnime: recentAnimedata },
+        return {
+            props: { topAnime: topAnimedata, recentAnime: recentAnimedata },
+        }
+    } catch (error) {
+        console.error(error)
+        return {
+            props: { topAnime: null, recentAnime: null },
+        }
     }
 }

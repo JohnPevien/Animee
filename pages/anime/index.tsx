@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Header from '@components/Header'
-import TopAnimeGallery from '@components/TopAnimeGallery'
-import RecentAnimeGallery from '@components/RecentAnimeGallery'
+import TopAnimeGallery from '@components/AnimeIndex/TopAnimeGallery'
+import RecentAnimeGallery from '@components/AnimeIndex/RecentAnimeGallery'
 import type { RecentAnimeEpisodes, TopAnime } from 'shared/types'
 
 import { HiArrowLongRight } from 'react-icons/hi2'

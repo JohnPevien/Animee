@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import type { Anime, AnimeCharacters } from '@type/index'
+import type { AnimeCharacters } from '@type/index'
 
 type Props = {
     group: {

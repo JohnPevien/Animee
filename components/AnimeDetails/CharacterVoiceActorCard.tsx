@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import type { Anime, AnimeCharacters } from '@type/index'
+import type { AnimeCharacters } from '@type/index'
 
 type Props = {
     group: {
@@ -14,12 +14,21 @@ const CharacterVoiceActorCard = ({
 }: Props) => (
     <div className="inline-grid grid-cols-2 bg-slate-900 ">
         <div className="flex gap-2">
-            <Image
-                src={character?.images?.jpg?.image_url}
-                width={80}
-                height={50}
-                alt={character?.name}
-            />
+            {character?.images?.jpg?.image_url ? (
+                <Image
+                    src={character.images.jpg.image_url}
+                    width={80}
+                    height={50}
+                    alt={character?.name}
+                />
+            ) : (
+                <div
+                    className="flex h-[50px] w-[80px] items-center justify-center bg-slate-700 text-xs text-slate-300"
+                    aria-label={character?.name ?? 'No character image'}
+                >
+                    {(character?.name ?? '?').charAt(0)}
+                </div>
+            )}
             <div className="flex flex-col justify-center">
                 <a
                     className="text-xs"
@@ -32,12 +41,21 @@ const CharacterVoiceActorCard = ({
             </div>
         </div>
         <div className="flex gap-2  flex-row-reverse">
-            <Image
-                src={voiceActor?.images?.jpg?.image_url}
-                width={80}
-                height={50}
-                alt={voiceActor?.name}
-            />
+            {voiceActor?.images?.jpg?.image_url ? (
+                <Image
+                    src={voiceActor.images.jpg.image_url}
+                    width={80}
+                    height={50}
+                    alt={voiceActor?.name}
+                />
+            ) : (
+                <div
+                    className="flex h-[50px] w-[80px] items-center justify-center bg-slate-700 text-xs text-slate-300"
+                    aria-label={voiceActor?.name ?? 'No voice actor image'}
+                >
+                    {(voiceActor?.name ?? '?').charAt(0)}
+                </div>
+            )}
 
             <div className="flex flex-col justify-center">
                 <a

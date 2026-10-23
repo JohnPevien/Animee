@@ -30,18 +30,20 @@ function Anime({}: Props) {
     const { id } = router.query
 
     const { data, error, isLoading } = useSWR<Anime.RootObject>(
-        `https://api.jikan.moe/v4/anime/${id}/full`,
+        typeof id === 'string' ? `https://api.jikan.moe/v4/anime/${id}/full` : null,
         fetcher
     )
 
     const characterRequest = useSWR<AnimeCharacters.RootObject>(
-        `https://api.jikan.moe/v4/anime/${id}/characters`,
+        typeof id === 'string'
+            ? `https://api.jikan.moe/v4/anime/${id}/characters`
+            : null,
         fetcher
     )
 
     const characterData = characterRequest?.data
     if (error) return <div>Failed to load</div>
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading || !data) return <div>Loading...</div>
 
     return (
         <section

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import type { Anime, AnimeCharacters } from '@type/index'
 import CharacterVoiceActorCard from '@components/AnimeDetails/CharacterVoiceActorCard'
 

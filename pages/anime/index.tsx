@@ -90,11 +90,13 @@ export async function getStaticProps() {
 
         return {
             props: { topAnime: topAnimedata, recentAnime: recentAnimedata },
+            revalidate: 3600,
         }
     } catch (error) {
         console.error(error)
         return {
-            props: { topAnime: null, recentAnime: null },
+            props: { topAnime: { data: [] }, recentAnime: { data: [] } },
+            revalidate: 3600,
         }
     }
 }

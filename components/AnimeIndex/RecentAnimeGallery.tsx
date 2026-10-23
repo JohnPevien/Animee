@@ -11,7 +11,7 @@ export default function RecentAnimeGallery({ data }: Props) {
         <section className="container">
             <div className="flex flex-col sm:flex-row">
                 <div className="w-full grid grid-auto-fit-sm gap-x-0 gap-y-10 justify-items-center">
-                    {data.data.map((anime, index) => {
+                    {(data?.data ?? []).map((anime, index) => {
                         if (index > 15) return
                         return (
                             <div
